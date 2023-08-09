@@ -198,30 +198,30 @@ df  = get_cached_report(period)
 
 statuses = st.sidebar.multiselect(
     'Filtrar por estado:',
-    ['delivered',
+    ['pickup_arrived',
      'pickuped',
-     'returning',
-     'cancelled_by_taxi',
      'delivery_arrived',
-     'cancelled',
+     'delivered',
+     'delivered_finish',
+     'returning',
+     'return_arrived',
+     'returned',
+     'returned_finish',
+     # 'cancelled_by_taxi',
+     # 'cancelled',
      'performer_lookup',
      'performer_found',
      'performer_draft',
-     'returned',
-     'returned_finish',
      'performer_not_found',
-     'return_arrived',
-     'delivered_finish',
      'failed',
      'accepted',
-     'new',
-     'pickup_arrived'])
+     'new'])
 
 if (not statuses or statuses == []):
-    filtered_frame = df
+    filtered_frame = df[~df["status"].isin(["cancelled", "performer_not_found", "failed", "estimating_failed", "cancelled_by_taxi", "cancelled_with_payment"])]
 else:
     filtered_frame = df[df['status'].isin(statuses)]
-filtered_frame = filtered_frame.sort_values(by=['client', 'client_id','status_time'],ascending=False,ignore_index=True)
+filtered_frame = filtered_frame.sort_values(by=['client', 'client_id', 'status_time'], ascending=False, ignore_index=True)
 st.dataframe(filtered_frame)
 
 client_timezone = "America/Lima"
