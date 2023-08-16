@@ -238,4 +238,4 @@ with pandas.ExcelWriter(FILE_BUFFER, engine='xlsxwriter') as writer:
         mime="application/vnd.ms-excel"
     )
 
-st.caption("Con cariño desde Yango Delivery ❤️")
+st.caption("Con cariño desde YD ❤️")
