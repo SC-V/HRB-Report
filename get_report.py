@@ -2,13 +2,10 @@ import datetime
 import requests
 import json
 import pandas
-import numpy
 import io
-import time
 import re
 from pytz import timezone
 import streamlit as st
-import pydeck as pdk
 
 st.set_page_config(layout="wide")
 
