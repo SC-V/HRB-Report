@@ -178,7 +178,7 @@ def get_report(period, start_, end_) -> pandas.DataFrame:
                                     columns=["client", "client_id", "claim_id",
                                              "pickup_address", "receiver_address", "receiver_phone",
                                              "receiver_name", "comment", "status", "status_time", "return_reason",
-                                             "lon", "lat", "point_B_time", "point_A_time_pick"])
+                                             "lon", "lat", "is_final", "point_B_time", "point_A_time_pick"])
 
     return result_frame
 
